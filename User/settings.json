@@ -1,0 +1,113 @@
+{
+  // ---------- Formatting & lint on save ----------
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "eslint.useFlatConfig": true,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+
+  // ---------- TypeScript / Next.js ----------
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.suggest.autoImports": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.inlayHints.variableTypes.enabled": false,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": false,
+
+  // ---------- Tailwind ----------
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass"],
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["(?:cn|clsx|twMerge|classNames)\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+
+  // ---------- Editing feel ----------
+  "editor.linkedEditing": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.fontFamily": "JetBrainsMono NFM, Menlo, Monaco, monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.lineHeight": 1.6,
+  "editor.renderWhitespace": "boundary",
+  "editor.wordWrap": "off",
+  "editor.smoothScrolling": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.mouseWheelZoom": true,
+  "[markdown]": { "editor.wordWrap": "on" },
+
+  // ---------- Files ----------
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/.turbo": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/coverage": true,
+    "**/.turbo": true,
+    "**/pnpm-lock.yaml": true,
+    "**/package-lock.json": true,
+    "**/yarn.lock": true
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.next/**": true,
+    "**/.turbo/**": true,
+    "**/dist/**": true
+  },
+
+  // ---------- Explorer ----------
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.test.ts, ${capture}.spec.ts, ${capture}.d.ts",
+    "*.tsx": "${capture}.test.tsx, ${capture}.spec.tsx, ${capture}.stories.tsx, ${capture}.module.css",
+    "package.json": "package-lock.json, pnpm-lock.yaml, yarn.lock, bun.lockb, .nvmrc, .npmrc",
+    "tsconfig.json": "tsconfig.*.json",
+    "eslint.config.*": ".eslintrc*, .eslintignore",
+    "next.config.*": "next-env.d.ts, middleware.*",
+    "tailwind.config.*": "postcss.config.*, components.json",
+    "README.md": "LICENSE, CHANGELOG.md, CONTRIBUTING.md, docs"
+  },
+
+  // ---------- Workbench / window ----------
+  "workbench.editor.enablePreview": false,
+  "workbench.startupEditor": "none",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "window.newWindowDimensions": "maximized",
+  "breadcrumbs.enabled": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "telemetry.telemetryLevel": "off",
+
+  // ---------- Settings Sync ----------
+  // Turn on via: Cmd+Shift+P -> "Turn on Settings Sync", sign in with GitHub.
+  // Then do the same on the work machine and it pulls everything down.
+  "settingsSync.keybindingsPerPlatform": true,
+  "settingsSync.ignoredSettings": [
+    "telemetry.telemetryLevel",
+    "terminal.integrated.defaultProfile.osx"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "Type-only import": {
+    "prefix": "imp",
+    "body": ["import type { ${1:Type} } from \"${2:module}\""],
+    "description": "Type-only import"
+  },
+  "Interface": {
+    "prefix": "int",
+    "body": ["export interface ${1:Name} {", "  $0", "}", ""],
+    "description": "Exported interface"
+  },
+  "Type alias": {
+    "prefix": "type",
+    "body": ["export type ${1:Name} = ${2:unknown}", "$0"],
+    "description": "Exported type alias"
+  },
+  "Zod schema": {
+    "prefix": "zod",
+    "body": [
+      "export const ${1:schema}Schema = z.object({",
+      "  ${2:field}: z.string().min(1),",
+      "})",
+      "",
+      "export type ${1:Schema} = z.infer<typeof ${1:schema}Schema>",
+      ""
+    ],
+    "description": "Zod schema plus inferred type"
+  }
+}

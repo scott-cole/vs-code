@@ -1,0 +1,189 @@
+{
+  "Next.js Server Component": {
+    "prefix": "nfc",
+    "body": [
+      "export default function ${1:${TM_FILENAME_BASE/^./${TM_FILENAME_BASE:0:1}/}}() {",
+      "  return (",
+      "    <div>",
+      "      $0",
+      "    </div>",
+      "  )",
+      "}",
+      ""
+    ],
+    "description": "Next.js App Router server component"
+  },
+  "Next.js Client Component": {
+    "prefix": "nfcc",
+    "body": [
+      "\"use client\"",
+      "",
+      "export default function ${1:Component}() {",
+      "  return (",
+      "    <div>",
+      "      $0",
+      "    </div>",
+      "  )",
+      "}",
+      ""
+    ],
+    "description": "Next.js App Router client component with \"use client\" directive"
+  },
+  "Next.js Page": {
+    "prefix": "npage",
+    "body": [
+      "import type { Metadata } from \"next\"",
+      "",
+      "export const metadata: Metadata = {",
+      "  title: \"${1:Page Title}\",",
+      "  description: \"${2:Description}\",",
+      "}",
+      "",
+      "type Props = {",
+      "  params: Promise<{ ${3:id}: string }>",
+      "  searchParams: Promise<{ [key: string]: string | string[] | undefined }>",
+      "}",
+      "",
+      "export default async function ${4:Page}({ params, searchParams }: Props) {",
+      "  const { ${3:id} } = await params",
+      "  $0",
+      "  return (",
+      "    <main>",
+      "      {${3:id}}",
+      "    </main>",
+      "  )",
+      "}",
+      ""
+    ],
+    "description": "Next.js App Router page with async params"
+  },
+  "Next.js Layout": {
+    "prefix": "nlayout",
+    "body": [
+      "export default function ${1:Layout}({",
+      "  children,",
+      "}: Readonly<{ children: React.ReactNode }>) {",
+      "  return (",
+      "    <section>",
+      "      $0",
+      "      {children}",
+      "    </section>",
+      "  )",
+      "}",
+      ""
+    ],
+    "description": "Next.js App Router layout"
+  },
+  "Next.js Route Handler": {
+    "prefix": "nroute",
+    "body": [
+      "import { NextResponse } from \"next/server\"",
+      "import type { NextRequest } from \"next/server\"",
+      "",
+      "export async function ${1:GET}(request: NextRequest) {",
+      "  try {",
+      "    $0",
+      "    return NextResponse.json({}, { status: 200 })",
+      "  } catch (error) {",
+      "    return NextResponse.json({ error: \"Internal Server Error\" }, { status: 500 })",
+      "  }",
+      "}",
+      ""
+    ],
+    "description": "Next.js App Router route handler"
+  },
+  "Next.js Server Action": {
+    "prefix": "naction",
+    "body": [
+      "\"use server\"",
+      "",
+      "export async function ${1:action}(formData: FormData) {",
+      "  $0",
+      "}",
+      ""
+    ],
+    "description": "Server action"
+  },
+  "Typed Component with Props": {
+    "prefix": "tfc",
+    "body": [
+      "type ${1:Component}Props = {",
+      "  ${2:className}?: string",
+      "}",
+      "",
+      "export function ${1:Component}({ ${2:className} }: ${1:Component}Props) {",
+      "  return (",
+      "    <div className={${2:className}}>",
+      "      $0",
+      "    </div>",
+      "  )",
+      "}",
+      ""
+    ],
+    "description": "Function component with an explicit Props type"
+  },
+  "React useState": {
+    "prefix": "ustate",
+    "body": ["const [${1:state}, set${2:State}] = useState<${3:string}>(${4:initial})", "$0"],
+    "description": "useState hook"
+  },
+  "React useEffect": {
+    "prefix": "ueffect",
+    "body": [
+      "useEffect(() => {",
+      "  $0",
+      "",
+      "  return () => {",
+      "    // cleanup",
+      "  }",
+      "}, [${1:deps}])",
+      ""
+    ],
+    "description": "useEffect hook with cleanup"
+  },
+  "React useMemo": {
+    "prefix": "umemo",
+    "body": ["const ${1:value} = useMemo(() => $0, [${2:deps}])"],
+    "description": "useMemo hook"
+  },
+  "React useCallback": {
+    "prefix": "ucallback",
+    "body": ["const ${1:handle} = useCallback((${2:args}) => {", "  $0", "}, [${3:deps}])", ""],
+    "description": "useCallback hook"
+  },
+  "React useRef": {
+    "prefix": "uref",
+    "body": ["const ${1:ref} = useRef<${2:HTMLDivElement}>(null)"],
+    "description": "useRef hook"
+  },
+  "Import type": {
+    "prefix": "imp",
+    "body": ["import type { ${1:Type} } from \"${2:module}\""],
+    "description": "Type-only import"
+  },
+  "Console log with label": {
+    "prefix": "cll",
+    "body": ["console.log(\"${1:label}:\", ${2:value})"],
+    "description": "Labelled console.log"
+  },
+  "Try / catch with unknown error": {
+    "prefix": "trycatch",
+    "body": [
+      "try {",
+      "  $0",
+      "} catch (error) {",
+      "  if (error instanceof Error) {",
+      "    console.error(error.message)",
+      "  }",
+      "  throw error",
+      "}",
+      ""
+    ],
+    "description": "try/catch that narrows unknown to Error"
+  },
+  "Tailwind className": {
+    "prefix": "tw",
+    "body": ["className=\"${1:flex items-center}\"", "$0"],
+    "description": "Tailwind className attribute"
+  }
+}
