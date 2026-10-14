@@ -12,10 +12,14 @@ or simply wanting to see the config as reviewable text in git.
 ## Restoring on the work machine
 
 ```sh
-git clone <this-repo> ~/dev/vscode-config
+git clone https://github.com/scott-cole/vs-code.git ~/dev/vscode-config
 cd ~/dev/vscode-config
 ./restore.sh
 ```
+
+The repo is public, so that clone needs no credentials — useful on locked-down
+machines where you can't add an SSH key. If you'd rather it be private, clone with
+SSH instead: `git clone git@github.com:scott-cole/vs-code.git`.
 
 `restore.sh` detects macOS vs Linux, backs up any existing config first, then installs
 the extensions listed in `extensions.txt`.
